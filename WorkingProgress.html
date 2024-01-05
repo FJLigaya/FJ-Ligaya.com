@@ -1,0 +1,562 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+      <link rel="icon" type="image/png" href="FJ Ligaya.png">
+      <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <title>FJ Ligaya</title>
+      <style>
+        body {
+          background: url('LUXMUNDIS CUP Poster.jpg') center/cover fixed;
+          font-family: "Times New Roman", Times, serif;
+          color: #333;
+          margin: 0;
+          padding: 0;
+          box-sizing: border-box;
+        }
+
+        .lux-mundis-section h2 {
+            font-size: 3em;
+            margin-bottom: 10px;
+            position: relative;
+            display: inline-block;
+            color: #6A5ACD; /* Darker lavender text color */
+            cursor: pointer;
+            transition: transform 0.3s ease, color 0.3s ease;
+            animation: bounceAnimation 2s infinite, glowAnimation 2s infinite;
+            font-family: 'Harrington', cursive;
+            font-weight: bold;
+            padding: 5px 10px;
+            border-radius: 5px;
+            background-color: rgba(255, 255, 255, 0.7); /* Transparent background color */
+            text-shadow: 0 0 10px #c8a2c8, 0 0 20px #c8a2c8, 0 0 30px #c8a2c8; /* Glow effect with the new text color */
+        }
+
+        @keyframes bounceAnimation {
+            0%, 20%, 50%, 80%, 100% {
+                transform: translateY(0);
+            }
+            40% {
+                transform: translateY(-20px); /* Adjust the bounce height */
+            }
+            60% {
+                transform: translateY(-10px); /* Adjust the bounce height */
+            }
+        }
+
+        @keyframes glowAnimation {
+            0%, 100% {
+                color: #3498db; /* Initial and final text color for glow effect */
+                text-shadow: 0 0 10px #3498db, 0 0 20px #3498db, 0 0 30px #3498db; /* Glow effect */
+            }
+            50% {
+                color: #e74c3c; /* Adjust the text color for glow effect */
+                text-shadow: 0 0 20px #e74c3c, 0 0 40px #e74c3c, 0 0 60px #e74c3c; /* Adjust the glow effect */
+            }
+        }
+
+        .lux-mundis-section h2:hover {
+            transform: scale(1.05);
+        }
+
+        .lux-mundis-section h2:before {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 2px;
+            background-color: white;
+            transform-origin: bottom right;
+            transform: scaleX(0);
+            transition: transform 0.3s ease;
+        }
+
+        .lux-mundis-section:hover h2:before {
+            transform-origin: bottom left;
+            transform: scaleX(1);
+        }
+
+        .logo-container {
+          position: absolute;
+          top: 20px;
+          left: 20px;
+          display: flex;
+        }
+
+        .logo {
+          width: 60px;
+          height: auto;
+          margin-left: 10px;
+          margin-bottom: 10px;
+          border-radius: 50%;
+          box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .lux-mundis-section {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 200px;
+            margin-top: 20px;
+        }
+
+        .lux-mundis-section:hover {
+          background-color: transparent;
+        }
+
+
+        .center-content {
+          max-width: 800px;
+          margin: 0 auto;
+          padding: 20px;
+          background-color: #fff;
+          box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+          border-radius: 10px;
+          margin-top: 80px;
+          position: relative;
+          z-index: 1;
+          text-align: center; /* Center the content */
+        }
+
+        .nav-btn {
+            background-color: #3498db;
+            color: #fff;
+            border: none;
+            padding: 10px 15px;
+            margin: 0 10px;
+            cursor: pointer;
+            font-size: 16px;
+            display: flex;
+            align-items: center;
+            transition: background-color 0.3s ease, color 0.3s ease;
+            font-family: 'Courier', monospace;
+            border-radius: 5px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .nav-btn:hover {
+            background-color: #2980b9;
+        }
+
+        .buttons-container {
+            position: absolute;
+            top: 20px;
+            right: 10px;
+            display: flex;
+            z-index: 2;
+        }
+
+        .nav-btn img {
+            margin-right: 5px;
+        }
+
+
+        .about {
+            max-width: 800px; /* Adjust the max-width based on your preference */
+            margin-left: auto;
+            margin-right: auto;
+            margin-top: 20px;
+            font-size: 1.2em;
+            line-height: 1.8;
+            text-align: center;
+            font-family: "Times New Roman", Times, serif;
+            padding: 30px;
+            background-color: rgba(245, 245, 245, 0.9);
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.05);
+            border: none;
+        }
+
+        .about p {
+            margin-bottom: 20px;
+        }
+
+        .about h3 {
+            font-size: 1.5em;
+            color: #3498db;
+            margin-bottom: 15px;
+        }
+
+        .about strong {
+            font-weight: bold;
+        }
+
+        .about a {
+            color: #e74c3c;
+            text-decoration: underline;
+        }
+
+        .about a:hover {
+            color: #c0392b;
+        }
+
+        .photos-container {
+            display: flex;
+            justify-content: center;
+            margin-top: 20px;
+        }
+
+        .photo {
+            width: 30%;
+            margin: 0 10px 20px;
+            overflow: hidden;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease-in-out;
+        }
+
+        .photo:hover {
+            transform: scale(1.05);
+        }
+
+        .photo img {
+            width: 100%;
+            height: auto;
+            border-radius: 10px 10px 0 0;
+        }
+
+        .caption {
+            padding: 10px;
+            background-color: #333;
+            color: #fff;
+            text-align: center;
+        }
+
+        .video-container {
+            position: relative;
+            margin-top: 20px;
+            text-align: center;
+            animation: fadeAnimation 4s infinite;
+        }
+
+        @keyframes fadeAnimation {
+            0%, 100% {
+                opacity: 0.8;
+            }
+            50% {
+                opacity: 1;
+            }
+        }
+
+        .video-container iframe {
+            border-radius: 10px;
+            width: 100%;
+            max-width: 1000px;
+            height: 400px;
+            box-shadow: 0 0 10px 4px #e74c3c;
+        }
+
+        @media (max-width: 600px) {
+            .video-container iframe {
+                height: 250px;
+            }
+        }
+
+        @keyframes glowAnimation {
+            0%, 100% {
+                box-shadow: 0 0 10px 4px #3498db;
+                opacity: 1;
+            }
+            50% {
+                box-shadow: 0 0 20px 8px #e74c3c;
+                opacity: 0.8;
+            }
+        }
+
+        .video-caption {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            text-align: center;
+            color: rgba(255, 255, 255, 0.5); /* Set a lower alpha value for more transparency */
+        }
+
+        .video-caption p {
+            margin: 0;
+            font-family: "Times New Roman", Times, serif;
+        }
+
+        .video-caption a {
+            color: rgba(255, 255, 255, 0.5); /* Set a lower alpha value for more transparency */
+        }
+
+        .day-buttons {
+            margin-top: 20px;
+            display: flex;
+            justify-content: center;
+        }
+
+        .day-buttons .day-button {
+            background-color: rgba(52, 152, 219, 0.7); /* Adjust the alpha channel for transparency */
+            color: white;
+            padding: 10px 15px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            margin: 0 5px;
+            animation: glowAnimation 1s infinite alternate;
+            font-family: "Times New Roman", Times, serif;
+            font-weight: bold;
+        }
+
+        @keyframes glowAnimation {
+            0% {
+                box-shadow: 0 0 10px rgba(52, 152, 219, 0.8);
+            }
+            100% {
+                box-shadow: 0 0 20px rgba(52, 152, 219, 1), 0 0 30px rgba(52, 152, 219, 0.8);
+            }
+        }
+
+        .day-buttons .day-button:hover {
+            background-color: darkorchid;
+            animation: none; /* Disable animation on hover */
+        }
+
+        .day-buttons .day-button.active {
+            background-color: darkorchid;
+            transform: scale(1.1);
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+        }
+
+        footer {
+          text-align: center;
+          margin-top: 20px;
+          padding: 10px;
+          background-color: #333;
+          color: #fff;
+          font-family: "Times New Roman", Times, serif;
+        }
+
+        .institute-image {
+            width: 150px;
+            height: auto;
+            border-radius: 5px;
+            margin-top: 10px;
+        }
+
+        ul li p {
+            margin-bottom: 10px;
+        }
+      </style>
+    </head>
+
+    <body>
+        <div class="logo-container">
+            <img class="logo" src="fjligaya1.png" alt="FJ Ligaya">
+            <a href="http://www.gadtc.edu.ph/" target="_blank">
+                <img class="logo" src="TCGC.png" alt="TCGC">
+            </a>
+            <a href="http://www.gadtc.edu.ph/ics" target="_blank">
+                <img class="logo" src="ICS.png" alt="ICS">
+            </a>
+        </div>
+
+        <div class="lux-mundis-section" onclick="redirectToWorkingProgress()">
+            <h2>The Lux Mundis Cup 2023</h2>
+        </div>
+                <div class="about">
+                    <p>
+                        <h3>🌟 The Lux Mundis Cup: Endless Luminance - A Resplendent Recap!</h3>
+
+                        The echoes of cheers and the glow of camaraderie still linger as we look back on the phenomenal success of The Lux Mundis Cup: Endless Luminance, an unforgettable week-long extravaganza hosted at TCGC from December 18 to 22, 2023.
+                    </p>
+
+                    <p>
+                        <h3>🏆 Championing Campus Camaraderie: </h3>
+                        Six illustrious institutes, each bearing a unique identity:
+
+                        <ul>
+                            <li>
+                                <p>Trojans - Institute of Computer Studies</p>
+                                <img class="institute-image" src="FB_IMG_1704408342181.jpg" alt="Trojans Image">
+
+                            </li>
+                            <li>
+                                <p>Athenians - Institute of Teacher Education</p>
+                                <img class="institute-image" src="FB_IMG_1704408335497.jpg" alt="Athenians Image">
+
+                            </li>
+                            <li>
+                                <p>Amazons - Institute of Health Sciences</p>
+                                <img class="institute-image" src="FB_IMG_1704408340138.jpg" alt="Amazons Image">
+
+                            </li>
+                            <li>
+                                <p>Praetorians - Institute of Criminal Justice Education</p>
+                                <img class="institute-image" src="FB_IMG_1704408331233.jpg" alt="Praetorians Image">
+
+                            </li>
+                            <li>
+                                <p>Wizards - Institute of Arts and Sciences</p>
+                                <img class="institute-image" src="FB_IMG_1704408333121.jpg" alt="Wizards Image">
+
+                            <li>
+                                <p>Knights - Institute of Business and Financial Services</p>
+                                <img class="institute-image" src="FB_IMG_1704408337798.jpg" alt="Knights Image">
+                            </li>
+                        </ul>
+                    </p>
+
+                    <p>
+                        <h3>🎉 The Event Unveiled:</h3>
+                        The Lux Mundis Cup proved to be the pinnacle of athletic excellence, where students from diverse disciplines converged to showcase their talents and spirit in an array of intramural events. This prestigious tournament not only celebrated the pursuit of physical prowess but also became a beacon of community and unity, embodying the college's commitment to holistic student development.
+                    </p>
+
+                    <p>
+                        <h3>✨ A Tapestry of Values - #EndlessLuminance:</h3>
+                        Fueled by the core values of Integrity, Compassion, and Excellence, Endless Luminance transcended the realm of sports. Participants and spectators alike immersed themselves in an atmosphere where values were as crucial as victories. The event resonated with the collective energy of a community bound by a shared commitment to personal and collective growth.
+                    </p>
+
+                    <p>
+                        <h3>📸 #EndlessLuminance in Retrospect:</h3>
+                        As we fondly look back, #EndlessLuminance became more than a mere hashtag; it encapsulated the vibrant tapestry of memories created during the event. From heart-stopping matches to moments of heartfelt support, the journey was a testament to the enduring spirit of TCGC.
+                    </p>
+
+                    <p>
+                        <h3>🤝 Legacy of Unity and Excellence:</h3>
+                        In the aftermath of the Lux Mundis Cup, the legacy of unity, passion, and excellence endures. The event has left an indelible mark, not just as a sporting competition but as a celebration of the indomitable TCGC spirit. The bonds forged, the victories achieved, and the lessons learned will resonate throughout the campus, fostering a stronger, more connected student body.
+                    </p>
+
+                    <p>
+                        <h3>🔥 As the curtain falls on Endless Luminance, we carry forward the radiance of unity, the echoes of cheers, and the pride of being part of something truly extraordinary!</h3>
+                    </p>
+                </div>
+                <div class="lux-mundis-section" onclick="redirectToWorkingProgress()">
+                    <h2> Photos and Videos </h2>
+                </div>
+                <div class="day-buttons">
+                    <button class="day-button" id="dayButton1" onclick="showDayContent(1)">Day 1</button>
+                    <button class="day-button" id="dayButton2" onclick="showDayContent(2)">Day 2</button>
+                    <button class="day-button" id="dayButton3" onclick="showDayContent(3)">Day 3</button>
+                    <button class="day-button" id="dayButton4" onclick="showDayContent(4)">Day 4</button>
+                    <button class="day-button" id="dayButton5" onclick="showDayContent(5)">Day 5</button>
+                </div>
+
+                <div id="photosContainer" class="photos-container"></div>
+
+
+                <div class="video-container">
+                    <!-- Video -->
+                    <iframe width="560" height="315" src="LUXMUNDI.mp4" frameborder="0" allowfullscreen></iframe>
+                    <div class="video-caption">
+                        <p>Video Highlights</p>
+                        <p>Video: <a href="https://www.facebook.com/profile.php?id=100075932211006" target="_blank">Bro's Photography</a></p>
+                    </div>
+                </div>
+
+                <div class="video-container">
+                    <iframe width="560" height="315" src="Pagarbuhay Trojans.mp4" frameborder="0" allowfullscreen></iframe>
+                    <div class="video-caption">
+                        <p>Pagarbuhay Trojans</p>
+                    </div>
+                </div>
+
+                <div class="video-container">
+                    <iframe width="560" height="315" src="Enjoy.mp4" frameborder="0" allowfullscreen></iframe>
+                    <div class="video-caption">
+                        <p>Enjoy!</p>
+                    </div>
+                </div>
+
+                <div class="video-container">    
+                    <iframe width="560" height="315" src="Opening Program.mp4" frameborder="0" allowfullscreen></iframe>
+                    <div class="video-caption">
+                        <p>Opening Program</p>
+                        <p>Let's Go</p>
+                    </div>
+                </div>
+
+                <div class="video-container">
+                    <iframe width="560" height="315" src="The Lux Mundis Cup.mp4" frameborder="0" allowfullscreen></iframe>
+                    <div class="video-caption">
+                        <p>The Lux Mundis Cup</p>
+                        <p>Video: Aira Moreno </p>
+                    </div>
+                </div>
+            <div class="buttons-container">
+                <button class="nav-btn" id="homeButtonContact" onclick="showHomeContainer()">
+                    <img width="25" height="25" src="https://img.icons8.com/3d-fluency/94/user-credentials.png" alt="user-credentials"/>
+                    <b>Go Back to Log In Page</b>
+                </button>
+            </div>
+
+      <footer>
+        &copy; 2023 Filjoy Alia Adala
+      </footer>
+
+      <script>
+        function redirectToWorkingProgress() {
+          console.log('Redirecting to Working Progress...');
+        }
+
+        function showHomeContainer() {
+          window.location.href = 'Version8.html';
+        }
+
+        function showDayContent(day) {
+          var photosContainer = document.getElementById('photosContainer');
+
+          photosContainer.innerHTML = '';
+
+          switch (day) {
+            case 1:
+              addPhoto("day1_photo4.jpg", "Light of the World");
+              addPhoto("day1_photo2.jpg", "Let's Open the Ceremony and Raise Our Flag");
+              addPhoto("day1_photo3.jpg", "Let's Go Trojans Pagarbuhay Performance");
+              addPhoto("day1_photo1.jpeg", "All Ready for Pagarbuhay Aja!");
+              break;
+            case 2:
+              addPhoto("day2_photo101.jpg", "Trojan's Cheerdance - where passion sparks, and routines weave tales of unity and energy.");
+              addPhoto("day2_photo2.jpg", "Debate @ Annex Building");
+              addPhoto("day2_photo3.jpg", "Chess - In chess, every move is a story, and victory is the final chapter.");
+              break;
+            case 3:
+              addPhoto("day3_photo1.jpg", "Takraw : where agility shines, kicks defy gravity, and teamwork elevates the game.");
+              addPhoto("day3_photo2.jpg", "Table Tennis : a fast-paced dance of precision, where ball and paddle create a symphony of skill.");
+              addPhoto("day3_photo3.jpg", "Volleyball : spikes, blocks, teamwork—the court is a canvas, each point a brushstroke in the story of determination.");
+              break;
+            case 4:
+              addPhoto("day4_photo1.jpg", "Mr. & Ms. Lux Mundi : Where grace meets charisma, and every step is a stride toward crowning moments. On the stage, contestants weave tales of elegance, intellect, and the pursuit of the coveted title.");
+              addPhoto("day4_photo2.jpg", "TROJANS with ATHENIANS - Supporting everyone, where Trojans stand with Athenians, transcending institute lines. In unity, diversity finds its strength, and on the stage of camaraderie, every cheer echoes the spirit of togetherness.");
+              addPhoto("day4_photo3.jpg", "Mr. & Ms. Lux Mundi : In the search for Mr. & Ms. Lux Mundi, every graceful step becomes a chapter in the story of pursuit—where elegance, charisma, and intellect unfold on the stage of dreams.");
+              break;
+            case 5:
+              addPhoto("day5_photo1.jpg", "Awarding Ceremony - achievements shine, and applause speaks volumes. Each trophy a testament to hard work and excellence");
+              addPhoto("day5_photo2.jpg", "See you next year for the 2024 Lux Mundis Cup: where the spirit of competition and camaraderie continues to shine bright on the stage of endless luminance.");
+              addPhoto("day5_photo3.jpg", "Accomplishments take the spotlight, and as the curtain falls, goodnight echoes with the triumph of the day.");
+              break;
+            default:
+              addPhoto("day1_photo4.jpg", "Light of the World");
+              addPhoto("day1_photo2.jpg", "Let's Open the Ceremony and Raise Our Flag");
+              addPhoto("day1_photo3.jpg", "Let's Go Trojans Pagarbuhay Performance");
+              addPhoto("day1_photo1.jpeg", "All Ready for Pagarbuhay Aja!");              
+              break;
+          }
+        }
+
+        function addPhoto(imageSrc, caption) {
+          var photo = document.createElement('div');
+          photo.className = 'photo';
+
+          var img = document.createElement('img');
+          img.src = imageSrc;
+          img.alt = 'Lux Mundis Cup Photo';
+
+          var captionElement = document.createElement('div');
+          captionElement.className = 'caption';
+          captionElement.textContent = caption;
+
+          photo.appendChild(img);
+          photo.appendChild(captionElement);
+
+          var photosContainer = document.getElementById('photosContainer');
+          photosContainer.appendChild(photo);
+        }
+      </script>
+    </body>
+</html>

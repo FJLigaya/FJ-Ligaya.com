@@ -1,0 +1,464 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+      <link rel="icon" type="image/png" href="FJ Ligaya.png">
+      <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <title>FJ Ligaya</title>
+      <style>
+        body {
+          background: url(' Brown.png') center/cover fixed;
+          font-family: "Times New Roman", Times, serif;
+          color: #333;
+          margin: 0;
+          padding: 0;
+          box-sizing: border-box;
+        }
+
+        .lux-mundis-section h2 {
+            font-size: 3em;
+            margin-bottom: 10px;
+            position: relative;
+            display: inline-block;
+            color: #6A5ACD;
+            cursor: pointer;
+            transition: transform 0.3s ease, color 0.3s ease;
+            animation: bounceAnimation 2s infinite, glowAnimation 2s infinite;
+            font-family: 'Harrington', cursive;
+            font-weight: bold;
+            padding: 5px 10px;
+            border-radius: 5px;
+            background-color: rgba(255, 255, 255, 0.7);
+            text-shadow: 0 0 10px #c8a2c8, 0 0 20px #c8a2c8, 0 0 30px #c8a2c8;
+        }
+
+        @keyframes bounceAnimation {
+            0%, 20%, 50%, 80%, 100% {
+                transform: translateY(0);
+            }
+            40% {
+                transform: translateY(-20px); /* Adjust the bounce height */
+            }
+            60% {
+                transform: translateY(-10px); /* Adjust the bounce height */
+            }
+        }
+
+        @keyframes glowAnimation {
+            0%, 100% {
+                color: #3498db; /* Initial and final text color for glow effect */
+                text-shadow: 0 0 10px #3498db, 0 0 20px #3498db, 0 0 30px #3498db; /* Glow effect */
+            }
+            50% {
+                color: #e74c3c; /* Adjust the text color for glow effect */
+                text-shadow: 0 0 20px #e74c3c, 0 0 40px #e74c3c, 0 0 60px #e74c3c; /* Adjust the glow effect */
+            }
+        }
+
+        .lux-mundis-section h2:hover {
+            transform: scale(1.05);
+        }
+
+        .lux-mundis-section h2:before {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 2px;
+            background-color: white;
+            transform-origin: bottom right;
+            transform: scaleX(0);
+            transition: transform 0.3s ease;
+        }
+
+        .lux-mundis-section:hover h2:before {
+            transform-origin: bottom left;
+            transform: scaleX(1);
+        }
+
+        .logo-container {
+          position: absolute;
+          top: 20px;
+          left: 20px;
+          display: flex;
+        }
+
+        .logo {
+          width: 60px;
+          height: auto;
+          margin-left: 10px;
+          margin-bottom: 10px;
+          border-radius: 50%;
+          box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .lux-mundis-section {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 200px;
+            margin-top: 20px;
+        }
+
+        .lux-mundis-section:hover {
+          background-color: transparent;
+        }
+
+
+        .center-content {
+          max-width: 800px;
+          margin: 0 auto;
+          padding: 20px;
+          background-color: #fff;
+          box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+          border-radius: 10px;
+          margin-top: 80px;
+          position: relative;
+          z-index: 1;
+          text-align: center; /* Center the content */
+        }
+
+        .nav-btn {
+            background-color: rgba(255, 255, 255, 0.7);
+            text-shadow: 0 0 10px #c8a2c8, 0 0 20px #c8a2c8, 0 0 30px #c8a2c8;            
+            color: #fff;
+            border: none;
+            padding: 10px 15px;
+            margin: 0 10px;
+            cursor: pointer;
+            font-size: 16px;
+            display: flex;
+            align-items: center;
+            transition: background-color 0.3s ease, color 0.3s ease;
+            font-family: 'Courier', monospace;
+            border-radius: 5px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .nav-btn:hover {
+            background-color: #2980b9;
+        }
+
+        .buttons-container {
+            position: absolute;
+            top: 20px;
+            right: 10px;
+            display: flex;
+            z-index: 2;
+        }
+
+        .nav-btn img {
+            margin-right: 5px;
+        }
+
+
+        .about {
+            max-width: 800px; /* Adjust the max-width based on your preference */
+            margin-left: auto;
+            margin-right: auto;
+            margin-top: 20px;
+            font-size: 1.2em;
+            line-height: 1.8;
+            text-align: center;
+            font-family: "Times New Roman", Times, serif;
+            padding: 30px;
+            background-color: rgba(245, 245, 245, 0.9);
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.05);
+            border: none;
+        }
+
+        .about p {
+            margin-bottom: 20px;
+        }
+
+        .about h3 {
+            font-size: 1.5em;
+            color: #3498db;
+            margin-bottom: 15px;
+        }
+
+        .about strong {
+            font-weight: bold;
+        }
+
+        .about a {
+            color: #e74c3c;
+            text-decoration: underline;
+        }
+
+        .about a:hover {
+            color: #c0392b;
+        }
+
+        .photos-container {
+            display: flex;
+            justify-content: flex-start;
+            overflow-x: auto;  /* Enable horizontal scrolling */
+            margin-top: 20px;
+        }
+
+        .photo {
+            width: 100%;
+            margin: 0 10px 20px;
+            overflow: hidden;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease-in-out;
+            display: flex; /* Add this line */
+            align-items: center; /* Add this line */
+        }
+
+        .photo:hover {
+            transform: scale(1.05);
+        }
+
+        .photo img {
+            width: 100%;
+            height: auto;
+            border-radius: 10px 10px 0 0;
+            object-fit: cover; /* Ensure the image covers the entire container */
+        }
+
+        .caption {
+            padding: 10px;
+            background-color: #333;
+            color: #fff;
+            text-align: center;
+        }
+
+        .video-container {
+            position: relative;
+            margin-top: 20px;
+            text-align: center;
+            animation: fadeAnimation 4s infinite;
+        }
+
+        @keyframes fadeAnimation {
+            0%, 100% {
+                opacity: 0.8;
+            }
+            50% {
+                opacity: 1;
+            }
+        }
+
+        .video-container iframe {
+            border-radius: 10px;
+            width: 100%;
+            max-width: 1000px;
+            height: 400px;
+            box-shadow: 0 0 10px 4px #e74c3c;
+        }
+
+        @media (max-width: 600px) {
+            .video-container iframe {
+                height: 250px;
+            }
+        }
+
+        @keyframes glowAnimation {
+            0%, 100% {
+                box-shadow: 0 0 10px 4px #3498db;
+                opacity: 1;
+            }
+            50% {
+                box-shadow: 0 0 20px 8px #e74c3c;
+                opacity: 0.8;
+            }
+        }
+
+        .video-caption {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            text-align: center;
+            color: rgba(255, 255, 255, 0.5); /* Set a lower alpha value for more transparency */
+        }
+
+        .video-caption p {
+            margin: 0;
+            font-family: "Times New Roman", Times, serif;
+        }
+
+        .video-caption a {
+            color: rgba(255, 255, 255, 0.5); /* Set a lower alpha value for more transparency */
+        }
+
+        .day-buttons {
+            margin-top: 20px;
+            display: flex;
+            justify-content: center;
+        }
+
+        .day-buttons .day-button {
+            background-color: rgba(52, 152, 219, 0.7); /* Adjust the alpha channel for transparency */
+            color: white;
+            padding: 10px 15px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            margin: 0 5px;
+            animation: glowAnimation 1s infinite alternate;
+            font-family: "Times New Roman", Times, serif;
+            font-weight: bold;
+        }
+
+        @keyframes glowAnimation {
+            0% {
+                box-shadow: 0 0 10px rgba(52, 152, 219, 0.8);
+            }
+            100% {
+                box-shadow: 0 0 20px rgba(52, 152, 219, 1), 0 0 30px rgba(52, 152, 219, 0.8);
+            }
+        }
+
+        .day-buttons .day-button:hover {
+            background-color: darkorchid;
+            animation: none; /* Disable animation on hover */
+        }
+
+        .day-buttons .day-button.active {
+            background-color: darkorchid;
+            transform: scale(1.1);
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+        }
+
+        footer {
+          text-align: center;
+          margin-top: 20px;
+          padding: 10px;
+          background-color: #333;
+          color: #fff;
+          font-family: "Times New Roman", Times, serif;
+        }
+      </style>
+    </head>
+
+    <body>
+        <div class="logo-container">
+            <img class="logo" src="fjligaya1.png" alt="FJ Ligaya">
+            <a href="http://www.gadtc.edu.ph/" target="_blank">
+                <img class="logo" src="TCGC.png" alt="TCGC">
+            </a>
+            <a href="http://www.gadtc.edu.ph/ics" target="_blank">
+                <img class="logo" src="ICS.png" alt="ICS">
+            </a>
+        </div>
+                <div class="lux-mundis-section" onclick="redirectToWorkingProgress()">
+                    <h2> Photos and Videos </h2>
+                </div>
+                <div class="day-buttons">
+                    <button class="day-button" id="dayButton1" onclick="showDayContent(1)">Filjoy Alia Adala</button>
+                    <button class="day-button" id="dayButton2" onclick="showDayContent(2)">Family</button>
+                    <button class="day-button" id="dayButton3" onclick="showDayContent(3)">Friends</button>
+                    <button class="day-button" id="dayButton4" onclick="showDayContent(4)">Workmates</button>
+                </div>
+
+                <div id="photosContainer" class="photos-container"></div>
+
+
+                <div class="video-container">
+                    <!-- Video -->
+                    <iframe width="560" height="315" src="Vid.mp4" frameborder="0" allowfullscreen></iframe>
+                    <iframe width="560" height="315" src="Vid2.mp4" frameborder="0" allowfullscreen></iframe>
+                    <iframe width="560" height="315" src="LUXMUNDI.mp4" frameborder="0" allowfullscreen></iframe>
+                </div>
+
+            <div class="buttons-container">
+                <button class="nav-btn" id="homeButtonContact" onclick="showHomeContainer()">
+                    <img width="24" height="24" src="fjligaya1.png" alt="FJ Ligaya" style="border-radius: 50%; box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); margin-right: 5px;">
+                    <b>FJ Ligaya</b>
+                </button>
+            </div>
+
+      <footer>
+        &copy; 2023 Filjoy Alia Adala
+      </footer>
+
+      <script>
+        window.onload = function () {
+            showDayContent(1);
+        };
+
+        function redirectToWorkingProgress() {
+            console.log('Redirecting to Working Progress...');
+        }
+
+        function showHomeContainer() {
+            window.location.href = 'Version8.html#fjLigayaSection';
+        }
+
+        function showDayContent(day) {
+          var photosContainer = document.getElementById('photosContainer');
+
+          photosContainer.innerHTML = '';
+
+          switch (day) {
+            case 1:
+              addPhoto("FJ1 Port.jpg");
+              addPhoto("FJ3 Port.jpeg");
+              addPhoto("FJ2 Port.jpeg");
+              addPhoto("FJ7 Port.jpg");
+              addPhoto("FJ5 Port.jpeg");
+              addPhoto("FJ6 Port.jpeg");
+              addPhoto("FJ4 Port.jpeg");
+              addPhoto("FJ9 Port.jpeg");
+              addPhoto("FJ8 Port.jpeg");
+              break;
+            case 2:
+              addPhoto("Fam1.jpg");
+              addPhoto("Fam3.jpeg");              
+              addPhoto("Fam4.jpg");
+              addPhoto("Fam5.jpeg");
+              addPhoto("Fam2.jpg");
+              break;
+            case 3:
+              addPhoto("F5.jpg");
+              addPhoto("F1.jpg");
+              addPhoto("F2.jpg");
+              addPhoto("F3.jpg");
+              addPhoto("F4.jpg");
+              addPhoto("F7.jpEg");
+              addPhoto("F8.jpeg");
+              addPhoto("F6.jpg");
+              break;
+            case 4:
+              addPhoto("W1.jpg");
+              addPhoto("W2.jpg");
+              addPhoto("W3.jpg");
+              break;
+            default:
+              addPhoto("FJ1 Port.jpg");
+              addPhoto("FJ3 Port.jpeg");
+              addPhoto("FJ2 Port.jpeg");
+              addPhoto("FJ7 Port.jpg");
+              addPhoto("FJ5 Port.jpeg");
+              addPhoto("FJ6 Port.jpeg");
+              addPhoto("FJ4 Port.jpeg");
+              addPhoto("FJ9 Port.jpeg");
+              addPhoto("FJ8 Port.jpeg");
+              break;
+          }
+        }
+
+        function addPhoto(imageSrc) {
+          var photo = document.createElement('div');
+          photo.className = 'photo';
+
+          var img = document.createElement('img');
+          img.src = imageSrc;
+          img.alt = 'Lux Mundis Cup Photo';
+
+          photo.appendChild(img);
+
+          var photosContainer = document.getElementById('photosContainer');
+          photosContainer.appendChild(photo);
+        }
+      </script>
+    </body>
+</html>
