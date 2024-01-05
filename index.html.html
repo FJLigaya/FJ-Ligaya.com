@@ -1,0 +1,1375 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+      <link rel="icon" type="image/png" href="FJ Ligaya.png">
+      <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <title>FJ Ligaya</title>
+      <style>
+        body {
+          font-family: "Times New Roman", Times, serif;
+          height: 100vh;
+          background-image: url('Green.png');
+          background-position: center;
+          background-size: cover;
+          background-repeat: no-repeat;
+          margin: 0;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          flex-direction: column;
+        }
+
+        body.home-active {
+          height: 100%;
+          background-image: url('Deks.png');
+          background-position: center;
+          background-size: cover;
+          background-repeat: no-repeat;
+          margin: 0;
+          display: grid;
+          align-items: center;
+          justify-content: center;
+          font-family: 'Courier', monospace;
+          color: Black;
+        }
+
+        header {
+          position: fixed;
+          top: 0;
+          left: 0;
+          right: 0;
+          background-color: #333;
+          color: #fff;
+          padding: 10px;
+          text-align: center;
+          z-index: 1000;
+        }
+
+        .container {
+          max-width: 80%;
+          margin: 0 auto;
+          padding: 5%;
+          background-color: rgba(216, 180, 200, 0.5);
+          border: 2px solid White;
+          border-radius: 4vw;
+          box-shadow: 1vw 1vw 1vw rgba(1, 1, 1, 1);
+          position: relative;
+        }
+
+        .user-profile-picture {
+          width: 100px;
+          height: auto;
+          border-radius: 50%;
+          margin-top: 10px;
+        }
+
+
+        #loginContainer h1,
+        #signupContainer h1,
+        #homeContainer h1 {
+          font-family: Harrington;
+        }
+
+        #homeContainer {
+          font-family: "Times New Roman", Times, serif;
+          background-color: transparent;
+          border: none;
+          box-shadow: none;
+          max-width: 1500px;
+          margin: 0 auto;
+          padding: 20px;
+          text-align: center;
+        }
+
+        .container1 {
+          margin-bottom: 20px;
+        }
+
+        #home .header {
+          background-image: url('Illustration.png');
+          padding: 10px;
+          border-radius: 10px;
+          margin-bottom: 20px;
+          margin-right: 180px;
+          margin-left: 180px;
+        }
+
+        #home .main-content {
+          display: flex;
+          justify-content: space-between;
+          margin-bottom: 20px;
+        }
+
+        .featured-section {
+          flex: 1;
+          text-align: center;
+        }
+
+        .featured-section h2 {
+          color: #333;
+        }
+
+        .featured-section li {
+          margin-bottom: 10px;
+        }
+
+        .social-media {
+          flex: 1;
+          text-align: center;
+        }
+
+        .social-media h2 {
+          color: #333;
+        }
+
+        .social-icons {
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          line-height: 1.5;
+        }
+
+        .social-icons a {
+          margin: 0 10px;
+        }
+
+        .social-media,
+        .latest-updates {
+          flex: 1;
+          text-align: center;
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          justify-content: center;
+        }
+
+        .latest-updates h2 {
+          color: #333;
+        }
+
+        .latest-updates ul {
+          list-style-type: none;
+          padding: 0;
+        }
+
+        .latest-updates li {
+          margin-bottom: 10px;
+        }
+
+        .buttons-container {
+          position: absolute;
+          top: 20px;
+          right: 10px;
+          display: flex;
+          z-index: 2;
+        }
+
+        .nav-btn {
+          background-color: #3498db;
+          color: #fff;
+          border: none;
+          padding: 10px 15px;
+          margin: 0 10px;
+          cursor: pointer;
+          font-size: 16px;
+          display: flex;
+          align-items: center;
+          transition: background-color 0.3s ease, color 0.3s ease;
+          font-family: 'Courier', monospace;
+          border-radius: 5px;
+          box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+          line-height: 1.5;
+        }
+
+        .nav-btn:hover {
+          background-color: darkorchid;
+        }
+
+        .user-profile-picture {
+          border-radius: 50%;
+          margin-top: 10px;
+        }
+
+        @media (max-width: 768px) {
+          #home .main-content {
+            flex-direction: column;
+          }
+
+          .social-media,
+          .latest-updates,
+          .featured-section {
+            margin-bottom: 20px;
+          }
+        }
+
+        #signupContainer .form-group #birthday {
+          width: 100%;
+          padding: 5px;
+          border: 1px solid lavender;
+          border-radius: 2px;
+          box-sizing: border-box;
+          font-family: "Times New Roman", Times, serif;
+          font-style: italic;
+          text-align: center;
+        }
+
+
+
+        h1 {
+          text-align: center;
+          font-family: Harrington;
+          margin-top: 20px;
+        }
+
+        .form-group {
+          margin-bottom: 10px;
+        }
+
+        label {
+          display: block;
+          margin-bottom: 5px;
+          font-weight: bold;
+        }
+
+        input[type="text"],
+        input[type="password"] {
+          width: 100%;
+          padding: 10px;
+          border: 1px solid lavender;
+          border-radius: 3px;
+          box-sizing: border-box;
+        }
+
+        input[type="text"]::placeholder,
+        input[type="password"]::placeholder {
+          font-family: "Times New Roman", Times, serif;
+          font-style: italic;
+          text-align: center;
+        }
+
+        .buttons-container {
+          position: absolute;
+          top: 20px;
+          right: 10px;
+          display: flex;
+          z-index: 2;
+          line-height: 1.5;
+        }
+
+        button {
+          width: 100%;
+          padding: 10px;
+          color: White;
+          background-color: Black;
+          border: none;
+          border-radius: 60px;
+          cursor: pointer;
+          margin-top: 20px;
+          font-family: "Times New Roman", Times, serif;
+        }
+
+        button:hover {
+          background-color: darkorchid;
+        }
+
+        .message {
+          text-align: center;
+          margin-top: 20px;
+          font-weight: bold;
+          font-family: Courier;
+        }
+
+        .message a {
+          text-decoration: blink;
+          color: purple;
+        }
+
+        .message a:hover {
+          text-decoration: underline;
+        }
+
+        .hidden {
+          display: none;
+        }
+
+        .password-container {
+          position: relative;
+        }
+
+        .eye-icon.togglePassword,
+        .eye-icon.toggleNewPassword,
+        .eye-icon.toggleConfirmPassword {
+          cursor: pointer;
+          position: absolute;
+          top: 50%;
+          right: 10px;
+          transform: translate(0, -50%);
+        }
+
+        .popup {
+          display: none;
+          position: fixed;
+          top: 0;
+          left: 0;
+          width: 100%;
+          height: 100%;
+          background-color: rgba(0, 0, 0, 0.7);
+          z-index: 1;
+          overflow: auto;
+        }
+
+        .popup-content {
+          position: absolute;
+          top: 50%;
+          left: 50%;
+          transform: translate(-50%, -50%);
+          background-color: white;
+          padding: 20px;
+          border-radius: 10px;
+          box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+          max-width: 80%;
+          text-align: center;
+        }
+
+        .close {
+          position: absolute;
+          top: 10px;
+          right: 10px;
+          font-size: 20px;
+          cursor: pointer;
+        }
+
+        .notification {
+          background-color: #4CAF50;
+          color: white;
+          text-align: center;
+          padding: 10px;
+          margin-top: 10px;
+        }
+
+        .error {
+          background-color: #f44336;
+        }
+
+        .post,
+        .project {
+          background-color: #fff;
+          border: 1px solid #ddd;
+          border-radius: 5px;
+          padding: 15px;
+          margin-bottom: 20px;
+        }
+
+        .post h3,
+        .project h3 {
+          font-size: 20px;
+          color: #333;
+          margin-bottom: 10px;
+        }
+
+        .post p,
+        .project p {
+          font-size: 16px;
+          color: #666;
+        }
+
+        #homeContainer.hidden {
+          display: none;
+        }
+
+        #homeContainer.home-active {
+          display: block;
+        }
+
+        footer {
+          background-color: #333;
+          color: #fff;
+          text-align: center;
+          padding: 5px;
+          position: fixed;
+          bottom: 0;
+          width: 100%;
+          font-family: "Times New Roman", Times, serif;
+        }
+
+        .logo-container {
+          position: absolute;
+          top: 20px;
+          left: 20px;
+          display: flex;
+        }
+
+        .logo {
+          width: 60px;
+          height: auto;
+          margin-left: 10px;
+          margin-bottom: 10px;
+          border-radius: 50%;
+          box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .nav-btn {
+          background-color: transparent;
+          color: black;
+          border: solid;
+          padding: 5px;
+          margin: 10x 10px;
+          cursor: pointer;
+          font-size: 14px;
+          display: flex;
+          width: 100%;
+          align-items: center;
+          transition: background-color 0.3s ease;
+          font-family: Courier;
+          border: none;
+        }
+
+        .center-content {
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+        }
+
+        .container {
+          margin-top: 50px;
+        }
+
+        .nav-dropdown {
+          position: relative;
+          display: inline-block;
+          margin-right: 63px;
+        }
+
+        .nav-dropdown .dropdown-content {
+          display: none;
+          position: absolute;
+          min-width: Auto;
+          z-index: 1000;
+          padding: 10px;
+        }
+
+        .nav-dropdown:hover .dropdown-content {
+          display: block;
+          position: absolute;
+          top:100%;
+        }
+
+        #contactSection h2 {
+          color: #333;
+          font-family: Harrington;
+          text-align: center;
+        }
+
+        .w3-section {
+          margin-bottom: 20px;
+        }
+
+        .w3-section p {
+          margin: 0;
+        }
+
+        .send {
+          width: 100%;
+          padding: 5px;
+          margin-bottom: 2px;
+          box-sizing: border-box;
+        }
+
+        .send1 {
+          width: 100%;
+          padding: 5px;
+          margin-bottom: 2px;
+          box-sizing: border-box;
+          height: 100px;
+        }
+
+        .w3-button {
+            background-color: #4CAF50;
+            color: #fff;
+            border: none;
+            padding: 15px 20px;
+            text-align: center;
+            text-decoration: none;
+            display: flex;
+            font-size: 16px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+            align-items: center;
+        }
+
+        .w3-button:hover {
+            background-color: darkorchid;
+            align-items: center;
+        }
+        #contactSection {
+          font-family: Courier;
+          background-image: url('Abstract.png');
+          border: 2px solid #ddd;
+          border-radius: 4vw;
+          box-shadow: 1vw 1vw 1vw rgba(1, 1, 1, 1);
+          margin: 0 auto;
+          padding: 20px;
+          margin-top: auto; 
+        }
+
+        #fjLigayaSection {
+          font-family: Courier;
+          background-image: url('GreenNone.png');
+          border: 2px solid #ddd;
+          border-radius: 4vw;
+          box-shadow: 1vw 1vw 1vw rgba(1, 1, 1, 1);
+          max-width: 1500px;
+          margin: 0 auto;
+          padding: 20px;
+          margin-top: 800px; 
+        }
+
+        .profile-picture3 {
+          max-width: 100px;
+          height: auto;
+          border-radius: 50%;
+          border: 4px solid white;
+          box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+          margin-top: 20px;
+          margin-right: 20px;
+        }
+
+        .file-container {
+          display: flex;
+          justify-content: center;
+          margin-top: 20px;
+        }
+
+        .file-item {
+          margin: 0 10px;
+          text-align: center;
+        }
+
+        .container2 {
+          margin-bottom: 20px;
+        }
+
+        #fjligaya .header {
+          background-image: url('Illustration.png');
+          padding: 10px;
+          border-radius: 10px;
+          margin-bottom: 20px;
+          margin-right: 130px;
+          margin-left: 130px;
+          font-family: "Times New Roman", Times, serif;
+          border: 2px solid #ddd;
+          border-radius: 4vw;
+          box-shadow: 1vw 1vw 1vw rgba(1, 1, 1, 1);
+        }
+
+        .photo-grid {
+          margin: 0 -16px;
+        }
+
+        .photo-grid .w3-half {
+          width: 33.33%;
+          float: left;
+          padding: 8px;
+          box-sizing: border-box;
+        }
+
+        .photo-grid {
+          display: flex;
+          flex-wrap: wrap;
+          justify-content: space-around;
+          margin: 0 -8px;
+        }
+
+        .photo-grid img {
+          width: calc(33.33% - 16px);
+          margin: 8px;
+          border-radius: 8px;
+          box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+          transition: transform 0.3s ease-in-out;
+        }
+
+        .photo-grid img:hover {
+          transform: scale(1.05);
+        }
+
+        .photo-grid img:nth-child(odd) {
+          border: 4px solid #3498db;
+        }
+
+        .photo-grid img:nth-child(even) {
+          border: 4px solid #e74c3c;
+        }
+
+        #luxmundisSection {
+            background-color: #f9f9f9;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            margin: 20px 0;
+        }
+
+        h2 {
+            color: #3498db;
+        }
+
+        .about {
+            font-size: 16px;
+            margin-bottom: 20px;
+        }
+
+        .photos-container {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 20px;
+        }
+
+        .photo {
+            flex: 0 0 30%;
+            margin-bottom: 10px;
+            border-radius: 5px;
+            overflow: hidden;
+        }
+
+        .photo img {
+            width: 100%;
+            border-radius: 5px;
+        }
+
+        .caption {
+            margin-top: 5px;
+            font-style: italic;
+            color: #555;
+        }
+
+        .video-container {
+            position: relative;
+            overflow: hidden;
+            max-width: 100%;
+            margin-bottom: 20px;
+            border-radius: 5px;
+        }
+
+        .video-container iframe {
+            width: 100%;
+            height: 100%;
+        }
+
+        .day-buttons {
+            display: flex;
+            justify-content: center;
+            margin-top: 20px;
+        }
+
+        .day-button {
+            padding: 10px 20px;
+            margin: 0 10px;
+            background-color: #3498db;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        .luxMundisButton {
+          position: absolute;
+          top: 100px;
+          left: 10px;
+          background-color: rgba(216, 180, 200, 0.5);
+          color: black;
+          border: none;
+          padding: 6px 10px; /* Adjusted padding */
+          border-radius: 5px;
+          cursor: pointer;
+          font-size: 14px; /* Adjusted font size */
+          font-family: 'Courier', monospace;
+          box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+          animation: glowAnimation 2s infinite;
+          text-align: center;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+        }
+
+        .luxMundisButton:hover {
+          background-color: darkorchid;
+          animation: none; /* Disable animation on hover */
+        }
+
+        @keyframes glowAnimation {
+          0%, 100% {
+            background-color: rgba(216, 180, 200, 0.5);
+            box-shadow: 0 0 10px rgba(216, 180, 200, 0.5);
+          }
+          50% {
+            background-color: #fff6f9; /* Adjusted pastel color during animation */
+            box-shadow: 0 0 20px #fff6f9; /* Adjusted pastel color during animation */
+          }
+        }
+
+        .luxMundisButton img {
+          margin-right: 5px;
+        }
+
+        #loginContainer {
+          animation: fadeInDown 2s ease, pulseAnimation 2s infinite;
+        }
+
+        @keyframes fadeInDown {
+          0% {
+            opacity: 0;
+            transform: translateY(-20px);
+          }
+          100% {
+            opacity: 1;
+            transform: translateY(0);
+          }
+        }
+        @keyframes pulseAnimation {
+          0% {
+            transform: scale(1);
+            box-shadow: 0 0 10px rgba(216, 180, 200, 0.5);
+          }
+          50% {
+            transform: scale(1.05);
+            box-shadow: 0 0 20px rgba(216, 180, 200, 0.7);
+          }
+          100% {
+            transform: scale(1);
+            box-shadow: 0 0 10px rgba(216, 180, 200, 0.5);
+          }
+        }
+      </style>
+    </head>
+
+    <body>
+      <div class="logo-container">
+        <img class="logo" src="fjligaya1.png" alt="FJ Ligaya">
+        <a href="http://www.gadtc.edu.ph/" target="_blank">
+          <img class="logo" src="TCGC.png" alt="TCGC">
+        </a>
+        <a href="http://www.gadtc.edu.ph/ics" target="_blank">
+          <img class="logo" src="ICS.png" alt="ICS">
+        </a>
+      </div>
+
+        <div class="center-content">
+
+          <div id="loginContainer" class="container full-height-container">
+            <h1>Please Login</h1>
+            <div class="form-group">
+              <label for="emailaddress">Email Address:</label>
+              <input type="text" id="emailaddress" placeholder="Enter Email Address">
+            </div>
+            <div class="form-group">
+              <label for="password">Password:</label>
+              <div class="password-container">
+                <input type="password" id="password" placeholder="Enter Password">
+                <span class="eye-icon togglePassword">👀</span>
+              </div>
+            </div>
+            <button type="button" id="loginButton">Login</button>
+            <div class="message">
+              <p id="loginErrorMessage" style="color: red;"></p>
+              Don't have an account?
+              <a href="#" id="signupLink">Click Here to Sign Up</a>
+            </div>
+          </div>
+          <div class="luxMundisButton" onclick="redirectToWorkingProgress()">
+            <img width="24" height="24" src="https://img.icons8.com/3d-fluency/24/trophy.png" alt="trophy"/>
+            <b>The Lux Mundis Cup 2023</b>
+          </div>
+
+          <div id="signupContainer" class="container full-height-container hidden">
+            <h1>Please Sign Up</h1>
+            <div class="form-group">
+              <label for="newUsername">Username:</label>
+              <input type="text" id="newUsername" placeholder="Enter New Username">
+            </div>
+            <div class="form-group">
+              <label for="birthday">Birthday:</label>
+              <input type="date" id="birthday" placeholder="Enter Your Birthday">
+            </div>
+            <div class="form-group">
+              <label for="newEmailAddress">New Email Address:</label>
+              <input type="text" id="newEmailAddress" placeholder="Enter New Email Address">
+            </div>
+            <div class="form-group">
+              <label for="newPassword">Password:</label>
+              <div class="password-container">
+                <input type="password" id="newPassword" placeholder="Enter New Password">
+                <span class="eye-icon toggleNewPassword">👀</span>
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="confirmPassword">Confirm Password:</label>
+              <div class="password-container">
+                <input type="password" id="confirmPassword" placeholder="Confirm New Password">
+                <span class="eye-icon toggleConfirmPassword">👀</span>
+              </div>
+            </div>
+            <button type="button" id="signupButton">Sign Up</button>
+            <div id="signupMessage" class="message">
+              <p id="signupErrorMessage" style="color: red;"></p>
+              Already have an account? <a href="#" id="loginLinkSignup">Click Here to Login</a>
+            </div>
+          </div>
+        </div>
+        <div id="homeContainer" class="container full-height-container hidden">
+          <div class="container1">
+            <h1>Welcome to FJ Ligaya</h1>
+          </div>
+          <div id="userProfile">
+          </div>
+
+          <section id="home" class="active">
+              <div class="header">
+                  <h1><b>Home Page</b></h1>
+                  <p>Discover the Essence of <b>Filjoy Alia Adala</b> and Dive into the Unforgettable Journey of <b>Luxmundis Cup 2023: Your Gateway to a World of Knowledge and Inspiration.</b></p>
+                  <p>Welcome to <b> FJ Ligaya </b>, Where Stories Unfold and Moments Transcend – A Hub for All Things Filjoy Alia Adala and the Schools Luxmundis Cup 2023.</p>
+                  <p><i><b>Explore, Connect, and Immerse Yourself in the Magic of Education and Excellence.</p></b></i>
+              </div>
+          
+              <div class="main-content">
+                  <div class="featured-section">
+                    <h2>What is in Here?</h2>
+                      <img width="20" height="20" src="https://img.icons8.com/tiny-color/16/user-credentials.png" alt="user-credentials"/>
+                        Login and Sign-Up
+                      <br>
+                      <img width="20" height="20" src="fjligaya1.png" alt="FJ Ligaya"/>
+                        About Filjoy in <i><b>FJ Ligaya </b></i>
+                      <br>
+                      <img width="20" height="20" src="https://img.icons8.com/3d-fluency/24/stack-of-photos.png" alt="stack-of-photos"/>
+                        Gallery in <i><b>FJ Ligaya </b></i>
+                      <br>
+                      <img width="20" height="20" src="https://img.icons8.com/3d-fluency/24/trophy.png" alt="trophy"/>
+                        The Lux Mundis Cup 2023: <i><b>Tangub City Global College </b></i>
+                      <br>
+                      <img width="20" height="20" src="https://img.icons8.com/3d-fluency/94/contacts.png" alt="contacts"/>
+                        Contact Us
+                  </div>
+              </div>
+          
+              <div class="social-media">
+                  <h2>Stay Connected</h2>
+                  <div class="social-icons">
+                      <a href="https://www.facebook.com/filjoyaliaadala/" target="blank">
+                          <img width="50 height="50" src="https://img.icons8.com/3d-fluency/94/facebook-circled.png" alt="facebook-circled"/>
+                      </a>
+                      <a href="https://twitter.com/ligayaa_08" target="blank">
+                          <img width="50" height="50" src="https://img.icons8.com/3d-fluency/94/twitter-circled.png" alt="twitter-circled"/>
+                      </a>
+                      <a href="https://www.instagram.com/fj_ligaya/" target="blank">
+                          <img width="50" height="50" src="https://img.icons8.com/3d-fluency/94/instagram-new.png" alt="instagram-new"/>
+                      </a>
+                      <a href="https://www.linkedin.com/in/filjoyadala/" target="blank">
+                          <img width="50" height="50" src="https://img.icons8.com/3d-fluency/94/linkedin.png" alt="linkedin"/>                    </a>
+                  </div>
+              </div>
+          
+              <div class="latest-updates">
+                  <h2>Future Updates</h2>
+                  <ul>
+                    <li class="fas fa-check">
+                      <div class="nav-btn" data-section="about">
+                      <img width="24" height="24" src="https://img.icons8.com/3d-fluency/24/info.png" alt="info"/>
+                      <b>Giving More Meaningful Purpose </b> <i> COMMING SOON!</i>
+                      </div>
+                    </li>
+                    <li class="fas fa-check">
+                      <div class="nav-btn" data-section="services">
+                        <img width="24" height="24" src="https://img.icons8.com/3d-fluency/750/services--v2.png" alt="services--v2"/>
+                        <b>Adding Future Useful Services </b> <i> COMMING SOON!</i>
+                      </dic>
+                    </li>
+                  </ul>
+              </div>
+          </section>
+
+          <div class="buttons-container">
+            <div class="nav-dropdown">
+              <button class="nav-btn" id="homeButton" onclick="showSection('home')">
+                <img width="24" height="24" src="https://img.icons8.com/3d-fluency/24/home.png" alt="home"/>
+                <b>Home</b>
+              </button>
+              <div class="dropdown-content">
+                <button class="nav-btn" data-section="FJ Ligaya" onclick="showSection('FJ Ligaya')">
+                  <img width="24" height="24" src="fjligaya1.png" alt="FJ Ligaya"/>
+                  <b>FJ Ligaya</b>
+                </button>
+                <button class="nav-btn" data-section="contact" onclick="showSection('contact')">
+                  <img width="24" height="24" src="https://img.icons8.com/3d-fluency/94/contacts.png" alt="contacts"/>
+                  <b>Contact</b>
+                </button>
+                <button class="nav-btn" id="logoutButtonHome">
+                  <img width="24" height="24" src="https://img.icons8.com/3d-fluency/24/user-credentials.png" alt="user-credentials"/>
+                  <b>Logout</b>
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div id="fjLigayaSection" class="section-container hidden">
+            <div class="container2">
+              <h1>FJ Ligaya</h1>
+            </div>
+
+            <section id="fjligaya" class="active">
+              <div class="header">
+                <h1><img src="Profile.jpeg" alt="FJ Ligaya Profile Picture" class="profile-picture3"></h1>
+                <p><strong>Hi! I'm Filjoy Alia Adala.</strong></p>
+                <p><strong>24 years of age, turning 25 this year.</strong></p>
+                <p><strong>I took up a Bachelor of Science in Computer Science at Tangub City Global College.</strong></p>
+                <h1>Want to know more?</h1>
+                <ul>
+                  <p><b>I'm interested in solitude; I've discovered that I enjoy travelling and going to places alone since it brings me peace. </b></p>
+                  <p><b>Me? I have an amazing heart. You can also see me as tough on the outside, but there are times when I'm really crumbling on the inside. </b></p>
+                  <p><b>Back in junior high school, one of my technical skills was computer hardware servicing, and I was able to compete as a result. This is also when I became interested in computers, and one of my talents is that I am always eager to learn and explore new things.</b></p>
+                  <p><b>I've learned that everything happens for a reason and that I'm not alone in every battle I'm fighting or about to fight, but I'm also hoping to learn to be somewhat selfish so that I am able to say no.</b></p>
+                  <p><b>It is extremely important to me that I discover my place and myself and that I'm able to say, "Filjoy First."</b></p>
+                </ul>
+              </div>
+            </section>
+              <h1>More of Filjoy</h1>
+              <button class="nav-btn" data-section="gallery" onclick="redirectTo('MyGallery.html')">
+                <img width="25" height="25" src="https://img.icons8.com/3d-fluency/24/stack-of-photos.png" alt="stack-of-photos"/>
+                <b> Gallery & Videos </b>
+                <img width="25" height="24" src="https://img.icons8.com/3d-fluency/94/movies-folder.png" alt="movies-folder"/>
+              </button>
+
+            <div class="file-container">
+              <div class="file-item">
+                <h1>Personal Core Values</h1>
+                <iframe src="Personal Core Value FJ.pdf" width="100%" height="500px"></iframe>
+              </div>
+
+              <div class="file-item">
+                <h1>Versions of Me</h1>
+                <iframe src="Filjoy Alia Adala Versions of Me.pdf" width="100%" height="500px"></iframe>
+              </div>
+            </div>
+            <h3 style="font-display: Harrinton; text-align: center;"> <i> "Fostering connection through shared stories, a key to deeper understanding."</i></h3>
+
+            <div class="buttons-container">
+              <div class="nav-dropdown">
+                <button class="nav-btn" id="homeButtonContact" onclick="showHomeContainer()">
+                  <img width="24" height="24" src="https://img.icons8.com/3d-fluency/24/home.png" alt="home"/>
+                  <b> Home </b>
+                </button>
+                <div class="dropdown-content">
+                  <button class="nav-btn" data-section="contact" onclick="showSection('contact')">
+                    <img width="24" height="24" src="https://img.icons8.com/3d-fluency/94/contacts.png" alt="contacts"/>
+                    <b> Contact </b>
+                  </button>
+                  <button class="nav-btn" id="logoutButtonHome">
+                    <img width="24" height="24" src="https://img.icons8.com/3d-fluency/24/user-credentials.png" alt="user-credentials"/>
+                    <b> Logout </b>
+                  </button>
+                </div>
+              </div>
+            </div>
+        </div>
+
+        <div id="contactSection" class="section-container hidden">
+            <h2>Contact Us</h2>
+            <div class="w3-section">
+              <p> Address:<b> P-6 Lapasan, Clarin, Misamis Occidental Philippines 7201 </b> </p>
+              <p> Phone: <b> 09708718528 </b> </p>
+              <p> Email: <b>adala.filjoy@gmail.com</b></p>
+            </div>
+            <br>
+            <p><b> Let's get in touch. Send me a message:</b></p>
+            <form action="/submit_form.php" method="post" onsubmit="return sendMessage()">
+              <p><input class="send" type="text" placeholder="Name" required name="Name"></p>
+              <p><input class="send" type="text" placeholder="Email" required name="Email"></p>
+              <p><input class="send" type="text" placeholder="Subject" required name="Subject"></p>
+              <p><input class="send1" type="text" placeholder="Message" required name="Message"></p>
+              <p>
+                <button class="w3-button w3-light-grey w3-padding-large" type="submit">
+                  <img width="24" height="24" src="https://img.icons8.com/3d-fluency/94/paper-plane.png" alt="paper-plane"/> 
+                  SEND MESSAGE
+                </button>
+              </p>
+            </form>
+            <div id="notification" style="display:none;">
+              Message sent successfully!
+            </div>
+            <div class="social-media">
+              <h2>Stay Connected</h2>
+              <div class="social-icons">
+                <a href="https://www.facebook.com/filjoyaliaadala/" target="blank">
+                  <img width="50 height="50" src="https://img.icons8.com/3d-fluency/94/facebook-circled.png" alt="facebook-circled"/>
+                </a>
+                <a href="https://twitter.com/ligayaa_08" target="blank">
+                  <img width="50" height="50" src="https://img.icons8.com/3d-fluency/94/twitter-circled.png" alt="twitter-circled"/>
+                </a>
+                <a href="https://www.instagram.com/fj_ligaya/" target="blank">
+                  <img width="50" height="50" src="https://img.icons8.com/3d-fluency/94/instagram-new.png" alt="instagram-new"/>
+                </a>
+                <a href="https://www.linkedin.com/in/filjoyadala/" target="blank">
+                  <img width="50" height="50" src="https://img.icons8.com/3d-fluency/94/linkedin.png" alt="linkedin"/>                    
+                </a>
+              </div>
+            </div>
+              <div class="buttons-container">
+                <div class="nav-dropdown">
+                  <button class="nav-btn" id="homeButtonContact" onclick="showHomeContainer()">
+                    <img width="24" height="24" src="https://img.icons8.com/3d-fluency/24/home.png" alt="home"/>
+                    <b> Home </b>
+                  </button>
+                  <div class="dropdown-content">
+                    <button class="nav-btn" data-section="FJ Ligaya" onclick="showSection('FJ Ligaya')">
+                      <img width="24" height="24" src="fjligaya1.png" alt="FJ Ligaya"/>
+                      <b>FJ Ligaya</b>
+                    </button>
+                    <button class="nav-btn" id="logoutButtonHome">
+                      <img width="24" height="24" src="https://img.icons8.com/3d-fluency/24/user-credentials.png" alt="user-credentials"/>
+                      <b> Logout </b>
+                    </button>
+                  </div>
+              </div>
+        </div>
+
+      <footer>
+        &copy; 2023 Filjoy Alia Adala
+      </footer>
+
+      <script>
+        let users = JSON.parse(localStorage.getItem('users')) || [];
+
+        const loginContainer = document.getElementById('loginContainer');
+        const signupContainer = document.getElementById('signupContainer');
+        const loginButton = document.getElementById('loginButton');
+        const signupLink = document.getElementById('signupLink');
+        const signupButton = document.getElementById('signupButton');
+        const loginLinkSignup = document.getElementById('loginLinkSignup');
+
+        const passwordInput = document.getElementById('password');
+        const newPasswordInput = document.getElementById('newPassword');
+        const confirmPasswordInput = document.getElementById('confirmPassword');
+
+        const togglePassword = document.querySelector('.eye-icon.togglePassword');
+        const toggleNewPassword = document.querySelector('.eye-icon.toggleNewPassword');
+        const toggleConfirmPassword = document.querySelector('.eye-icon.toggleConfirmPassword');
+
+        // Add styles to hide post elements initially
+        const postElements = document.querySelectorAll('.post, .project');
+        postElements.forEach(element => {
+          element.style.display = 'none';
+        });
+
+        function togglePasswordVisibility(inputElement, eyeIcon) {
+          if (inputElement.type === 'password') {
+            inputElement.type = 'text';
+            eyeIcon.textContent = '👀';
+          } else {
+            inputElement.type = 'password';
+            eyeIcon.textContent = '🙈';
+          }
+        }
+
+        togglePassword.addEventListener('click', function () {
+          togglePasswordVisibility(passwordInput, togglePassword);
+        });
+
+        toggleNewPassword.addEventListener('click', function () {
+          togglePasswordVisibility(newPasswordInput, toggleNewPassword);
+        });
+
+        toggleConfirmPassword.addEventListener('click', function () {
+          togglePasswordVisibility(confirmPasswordInput, toggleConfirmPassword);
+        });
+
+        function handleLogin() {
+          const emailaddress = document.getElementById('emailaddress').value;
+          const password = document.getElementById('password').value;
+          const loginErrorMessage = document.getElementById('loginErrorMessage');
+
+          console.log("Attempting login with:", emailaddress, password);
+
+          const user = users.find(u => u.email === emailaddress && u.password === password);
+
+          if (user) {
+            loginErrorMessage.textContent = "";
+            displayUserProfile(user);
+            showPostElements();
+            alert('Login successful!');
+            showHomeContainer();
+
+            document.getElementById('emailaddress').value = '';
+            document.getElementById('password').value = '';
+          } else {
+            loginErrorMessage.textContent = "Invalid email or password";
+            console.log("Login failed. No matching user found.");
+          }
+        }
+
+        function displayUserProfile(user) {
+          const userProfile = document.getElementById('userProfile');
+          const today = new Date();
+          const birthDate = new Date(user.birthday);
+          let age = today.getFullYear() - birthDate.getFullYear();
+          const monthDiff = today.getMonth() - birthDate.getMonth();
+
+          if (monthDiff < 0 || (monthDiff === 0 && today.getDate() < birthDate.getDate())) {
+            age--;
+          }
+
+          userProfile.innerHTML = `
+                <style>
+                  h2 {
+                    font-family: "Times New Roman", Times, serif;
+                    font-size: 24px;
+                    color: #333;
+                    margin-bottom: 10px;
+                    opacity: 0;
+                    animation: fadeIn 5s forwards;
+                    background-color: transparent;
+                    padding: 15px;
+                    border-radius: 8px;
+                  }
+
+                  b {
+                      font-weight: bold;
+                  }
+
+                  i {
+                      font-style: italic;
+                  }
+                  @keyframes fadeIn {
+                      from {
+                          opacity: 0;
+                      }
+                      to {
+                          opacity: 1;
+                      }
+                  }
+              </style>
+              <h2>
+                  <b>Hi Good Day!<br>
+                  Welcome Back <i>${user.username}</i><br>
+                  Age: ${age}</b>
+              </h2>
+          `;
+        }
+
+        function handleSignup() {
+          const newUsername = document.getElementById('newUsername').value;
+          const newEmailAddress = document.getElementById('newEmailAddress').value;
+          const newPassword = document.getElementById('newPassword').value;
+          const confirmPassword = document.getElementById('confirmPassword').value;
+          const birthday = document.getElementById('birthday').value;
+          const signupErrorMessage = document.getElementById('signupErrorMessage');
+
+          if (newUsername === "" || newEmailAddress === "" || newPassword === "" || confirmPassword === "") {
+            signupErrorMessage.textContent = "Please fill in all fields.";
+          } else if (newPassword !== confirmPassword) {
+            signupErrorMessage.textContent = "Passwords do not match. Please confirm your password.";
+          } else {
+            const emailExists = users.some(u => u.email === newEmailAddress);
+
+            if (emailExists) {
+              signupErrorMessage.textContent = "Email address is already in use. Please choose another.";
+            } else {
+              const newUser = {
+                username: newUsername,
+                email: newEmailAddress,
+                password: newPassword,
+                birthday: birthday,
+              };
+
+              users.push(newUser);
+
+              localStorage.setItem('users', JSON.stringify(users));
+
+              signupErrorMessage.textContent = "";
+              displayUserProfile(users[users.length - 1]);
+              showPostElements();
+              alert("You've Signed Up Successfully! Welcome to the Home Page.");
+
+              showHomeContainer();
+            }
+          }
+        }
+
+        function navigateToSignup() {
+          loginContainer.classList.add('hidden');
+          signupContainer.classList.remove('hidden');
+          document.getElementById('signupErrorMessage').textContent = "";
+        }
+
+        function navigateToLogin() {
+          signupContainer.classList.add('hidden');
+          loginContainer.classList.remove('hidden');
+        }
+
+        loginButton.addEventListener('click', function () {
+          handleLogin();
+        });
+
+        signupLink.addEventListener('click', function () {
+          navigateToSignup();
+        });
+
+        signupButton.addEventListener('click', function () {
+          handleSignup();
+        });
+
+        loginLinkSignup.addEventListener('click', function () {
+          navigateToLogin();
+        });
+
+        function displayPopup(popupId) {
+          const popup = document.getElementById(popupId);
+          popup.style.display = 'block';
+        }
+
+        function closePopup(popupId) {
+          const popup = document.getElementById(popupId);
+          popup.style.display = 'none';
+        }
+
+        document.getElementById('logoutButtonHome').addEventListener('click', function () {
+          hideHomeContainer();
+          alert("Goodbye!");
+
+          hideHomeContainer();
+          loginContainer.classList.remove('hidden');
+        });
+
+        function showPostElements() {
+          postElements.forEach(element => {
+            element.style.display = 'block';
+          });
+        }
+
+        function showHomeContainer() {
+          const homeContainer = document.getElementById('homeContainer');
+          homeContainer.classList.remove('hidden');
+          homeContainer.classList.add('home-active');
+          document.body.classList.add('home-active');
+
+          const loginContainer = document.getElementById('loginContainer');
+          loginContainer.classList.add('hidden');
+
+          const signupContainer = document.getElementById('signupContainer');
+          signupContainer.classList.add('hidden');
+        }
+
+        function hideHomeContainer() {
+          const loginContainer = document.getElementById('loginContainer');
+          loginContainer.classList.remove('hidden');
+
+          const homeContainer = document.getElementById('homeContainer');
+          homeContainer.classList.add('hidden');
+          homeContainer.classList.remove('home-active');
+          document.body.classList.remove('home-active');
+
+
+          const signupContainer = document.getElementById('signupContainer');
+          signupContainer.classList.add('hidden');
+        }
+
+        function toggleNavButtons() {
+          const navButtonsContainer = document.querySelector('.nav-buttons-container');
+          navButtonsContainer.classList.toggle('nav-buttons-hidden');
+
+          const loginContainer = document.getElementById('loginContainer');
+          loginContainer.classList.remove('hidden');
+
+          const homeContainer = document.getElementById('homeContainer');
+          homeContainer.classList.add('hidden');
+          homeContainer.classList.remove('home-active');
+          document.body.classList.remove('home-active');
+
+          const signupContainer = document.getElementById('signupContainer');
+          signupContainer.classList.add('hidden');
+        }
+
+
+        function showSection(section) {
+          hideAllSections();
+
+          const sectionContainer = document.getElementById(`${section}Section`);
+          if (sectionContainer) {
+            sectionContainer.classList.remove('hidden');
+          }
+
+          // Hide other containers
+          const loginContainer = document.getElementById('loginContainer');
+          const homeContainer = document.getElementById('homeContainer');
+          const signupContainer = document.getElementById('signupContainer');
+
+          loginContainer.classList.add('hidden');
+          homeContainer.classList.add('hidden');
+          signupContainer.classList.add('hidden');
+        }
+
+        function hideAllSections() {
+          const sectionContainers = document.querySelectorAll('.section-container');
+          sectionContainers.forEach(container => {
+            container.classList.add('hidden');
+          });
+        }
+
+        document.querySelector('.nav-btn[data-section="FJ Ligaya"]').addEventListener('click', function () {
+          hideHomeContainer();
+          showSection('fjLigaya');
+        });
+
+        document.querySelector('.nav-btn[data-section="contact"]').addEventListener('click', function () {
+          hideHomeContainer();
+          showSection('contact');
+        });
+
+        document.getElementById('homeButton').addEventListener('click', function () {
+          hideAllSections();
+          showHomeContainer();
+        });
+
+        document.getElementById('contactHomeButton').addEventListener('click', function () {
+          hideAllSections();
+          showHomeContainer();
+        });
+
+        function sendMessage() {
+          var notification = document.getElementById('notification');
+          notification.textContent = 'Message sent successfully!';
+          notification.style.display = 'block';
+
+          return false;
+        }
+
+        function redirectToWorkingProgress() {
+          window.location.href = 'WorkingProgress.html';
+        }
+
+        function redirectTo(htmlFile) {
+          window.location.href =  'MyGallery.html';
+        }
+
+        function redirectToLuxMundis() {
+          window.location.href = 'WorkingProgress.html'; 
+        }
+
+        function showSection(section) {
+          hideAllSections();
+
+          const sectionContainer = document.getElementById(`${section}Section`);
+          if (sectionContainer) {
+            sectionContainer.classList.remove('hidden');
+          }
+
+          // Hide other containers
+          const loginContainer = document.getElementById('loginContainer');
+          const homeContainer = document.getElementById('homeContainer');
+          const signupContainer = document.getElementById('signupContainer');
+
+          loginContainer.classList.add('hidden');
+          homeContainer.classList.add('hidden');
+          signupContainer.classList.add('hidden');
+        }
+      </script>
+    </body>
+</html>
